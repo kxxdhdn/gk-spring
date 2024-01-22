@@ -8,6 +8,7 @@ public class AmsGkApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AmsGkApplication.class, args);
+		System.out.println("Hello GK");
 	}
 
 }
