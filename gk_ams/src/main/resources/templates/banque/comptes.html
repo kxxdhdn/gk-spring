@@ -1,0 +1,6 @@
+<h1 align="center">Liste des comptes bancaires</h1>
+
+<h3 align="center" style="background-color: brown;">Affichage dans une liste</h3>
+<ul>
+	<li th:each="cb:${comptes}" th:text="${cb}"></li>
+</ul>
