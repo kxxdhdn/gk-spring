@@ -2,14 +2,16 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <h1 align="center">Les banque de GK, Cursus Java, Promo 2024</h1>
 
+<!--
 <h3 align="center" style="background-color: brown;">Affichage dans une liste</h3>
 <ul>
 	<li th:each="banque:${banques}"
 		th:text="${banque.nomBanque}+'-'+${banque.adresseBanque}+'-'+${banque.capitalBanque}"></li>
 	<li th:each="banque:${banques}" th:text="${banque}"></li>
 </ul>
+-->
 
-Pour ajouter une nouvelle banque, cliquez ici : <a class="btn btn-primary" th:href="@{/addBanque}">Ajouter Banque</a>
+Pour ajouter une nouvelle banque, cliquez ici : <a class="btn btn-primary" th:href="@{/banques/add}">Ajouter Banque</a>
 <br />
 <br />
 
@@ -17,18 +19,22 @@ Pour ajouter une nouvelle banque, cliquez ici : <a class="btn btn-primary" th:hr
 
 <table border="4" align="center" class="table table-dark">
 	<tr>
+		<th>ID Banque</th>
 		<th>Nom Banque</th>
 		<th>Capital Banque</th>
 		<th>Adresse Banque</th>
-		<th>Supprimer</th>
-		<th>Modifier</th>
+		<th>Opérations</th>
 	</tr>
 	<tr th:each="banque:${banques}">
+		<td th:text="${banque.idBanque}"></td>
 		<td th:text="${banque.nomBanque}"></td>
 		<td th:text="${banque.adresseBanque}"></td>
 		<td th:text="${banque.capitalBanque}"></td>
-		<td><a th:href="@{/deleteBanque/{nomB}(nomB=${banque.nomBanque})}" class="btn btn-danger">Supprimer</a></td>
-		<td><a href="#" class="btn btn-warning">Modifier</a></td>
+		<td>
+			<a href="#" class="btn btn-primary">Détails</a>
+			<a href="#" class="btn btn-warning">Modifier</a>
+			<a th:href="@{/banques/delete/{idB}(idB=${banque.idBanque})}" class="btn btn-danger">Supprimer</a>
+		</td>
 	</tr>
 
 </table>
